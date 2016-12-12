@@ -70,20 +70,21 @@
                 scope.size = 25;
 
                 /**
+                 * Check status url and reset init status array with new value
+                 */
+                $log.debug(status);
+                if(status !== "all") {
+                    scope.init = [];
+                    scope.init.push(status);
+                }
+
+                /**
                  * Init params object to passing to api call
                  */
                 var params = {
                     "page_size": scope.size,
                     "status": scope.init
                 };
-
-                /**
-                 * Check status url and reset init status array with new value
-                 */
-                if(status !== "all") {
-                    scope.init = [];
-                    scope.init.push(status);
-                }
 
                 /**
                  * Get all categories...
