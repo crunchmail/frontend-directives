@@ -1,0 +1,34 @@
+<h1 translate class="title-with-bg">Categories</h1>
+<button translate
+ng-click="createCategory()"
+class="btn icon-add-circle-outline icon-absolute small-btn btn-action-right">Create a new category</button>
+<table ng-if="getCategories.length > 0" class="list-categories">
+    <thead>
+        <tr>
+            <th></th>
+            <th translate>Name</th>
+            <th translate>Numbers of messages</th>
+            <th translate>Manage</th>
+        </tr>
+    </thead>
+    <tr ng-repeat="item in getCategories">
+        <td class="category-name"><button class="btn x-small-btn icon-create icon-alone" ng-click="item.showFormCat = !item.showFormCat"></button></td>
+        <td class="category-form"><span ng-hide="item.showFormCat">{{item.name}}</span> <span ng-hide="!item.showFormCat"><input ng-init="newCatName = item.name" type="text" ng-model="newCatName"><button class="btn x-small-btn"  ng-click="udpateCatName(item.url, newCatName, item)">Ok</button></span></td>
+        <td>{{item.messages.length}}</td>
+        <td class="width-td">
+            <cm-drop-down>
+                <a translate href="#/statscategory/{{ item.url | encodeUrl }}" class="btn-dropDown">Report</a>
+                <button class="btn-dropDown" ng-click="showMenuDropDown($event)">▾</button>
+                <ul class="ul-reset">
+                    <li>
+                        <div translate
+                        ng-if="item.messages.length === 0"
+                        class="menuAction danger"
+                        cm-confirm="Are you sure you want to delete this category?"
+                        ng-click="deleteCategory(item.url)">Delete</div>
+                    </li>
+                </ul>
+            </cm-drop-down>
+        </td>
+    </tr>
+</table>

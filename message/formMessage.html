@@ -1,0 +1,86 @@
+<div ng-if="noDomain && !$root.isAdmin && !$root.detailMessage">
+    <p translate>There are no sending domains configured for your organization yet.</p>
+    <p translate>Please contact your organization's administrator or the Crunchmail team.</p>
+</div>
+<div ng-if="noDomain && $root.isAdmin && !$root.detailMessage">
+    <p translate>There are no sending domains configured for your organization yet.</p>
+    <p translate>You need to add a new domain before you can send your first message.</p>
+    <p translate>Sending domains allow you to authenticate your messages as coming from your organization with the receiving servers.</p>
+    <a translate class="btn small-btn" href="#/list-domains">Add a sending domain</a>
+</div>
+<div ng-if="!noDomain && noCategories && !$root.detailMessage">
+    <p translate>There are no message categories defined for your organization yet.</p>
+    <p translate>You need to create a new category before you can send your first message.</p>
+    <p translate>Message categories allow you to group your message by type, to scope recipients opt-outs and to compare message statictics.</p>
+    <button translate class="btn x-small-btn" ng-click="createCategory()">Create a category</button>
+</div>
+<form ng-show="!noCategories && !noDomain || $root.detailMessage" class="formCreateMessage" name="messageForm" novalidate>
+    <div class="form-group">
+        <label translate for="name">Message name:</label>
+        <div class="message_read_only" ng-show="readOnly">{{message.name}}</div>
+        <input ng-hide="readOnly" maxlength="60" name="name" type="text" id="name" ng-model="message.name" required>
+        <div translate class="error hidden">Name is empty or has errors</div>
+    </div>
+    <div class="form-group">
+        <label translate for="sender_email">Sender email:</label>
+        <input ng-readonly="readOnly" name="sender_email" type="hidden" ng-model="message.sender_email" required/>
+        <div class="message_read_only" ng-show="readOnly">{{message.sender_email}}</div>
+        <div class="col">
+            <input ng-hide="readOnly" ng-readonly="readOnly" class="firstPartMailWidth" type="text" ng-model="firstPartMail">
+            <div ng-hide="readOnly" class="secondPartMailWidth">
+                <span class="arobase" ng-if="domains.length > 1">@</span>
+                <div class="customSelect" ng-if="domains.length > 1"  ng-class="{'disabledSelect': readOnly}">
+                    <select ng-disabled="readOnly" ng-change="getDomainsLastPart(lastPartMail)" required ng-model="lastPartMail" ng-options="domain.name for domain in domains track by domain.name">
+                        <option translate value="" disabled>Select a domain</option>
+                    </select>
+                    <div translate class="customSelectDiv" ng-if="lastPartMail.name === '' || lastPartMail.name === undefined">Select a domain</div>
+                    <div class="customSelectDiv" ng-if="lastPartMail.name !== '' && lastPartMail.name !== undefined">{{lastPartMail.name}}</div>
+                </div>
+                <span class="arobase_name" ng-if="domains.length === 1">@{{domains[0].name}}</span>
+            </div>
+        </div>
+        <div translate class="error hidden">Sender email is empty or has errors</div>
+    </div>
+    <div class="form-group">
+        <label translate for="sender_name">Sender name:</label>
+        <div class="message_read_only" ng-show="readOnly">{{message.sender_name}}</div>
+        <input ng-hide="readOnly" name="sender_name" type="text" id="sender_name" ng-model="message.sender_name" required>
+        <div translate class="error hidden">Sender name is empty or has errors</div>
+    </div>
+    <div class="form-group">
+        <label translate for="subject">Subject:</label>
+        <div class="message_read_only" ng-show="readOnly">{{message.subject}}</div>
+        <input ng-hide="readOnly" name="subject" type="text" id="subject" ng-model="message.subject" required>
+        <div translate class="error hidden">Subject is empty or has errors</div>
+    </div>
+    <div ng-if="categories.length > 0" class="form-group form-group-category">
+        <label translate for="categories">Message category:</label>
+        <div class="message_read_only" ng-show="readOnly">{{message.category.name}}</div>
+        <div ng-hide="readOnly" class="customSelect" ng-class="{'disabledSelect': readOnly}">
+
+            <select ng-disabled="readOnly" required id="categories" ng-model="message.category" ng-options="category.name for category in categories track by category.url">
+                <option translate value="" disabled>Select a category</option>
+            </select>
+            <div translate class="customSelectDiv" ng-if="message.category.name === '' || message.category.name === undefined">Select a category</div>
+            <div class="customSelectDiv" ng-if="message.category.name !== '' && message.category.name !== undefined">{{message.category.name}}</div>
+        </div>
+        <button ng-hide="readOnly" translate class="btn x-small-btn icon-add-circle-outline" ng-click="createCategory()"></button>
+    </div>
+    <h3 ng-hide="readOnly" class="titleAdvancedOptions" ng-class="{'isOpen' : openAdvancedOptions}" translate ng-click="openAdvancedOptions = !openAdvancedOptions">Advanced options</h3>
+    <div ng-show="openAdvancedOptions" class="form-group form-checkgroups box">
+        <div>
+            <input id="track_open" type="checkbox" ng-model="message.track_open" />
+            <label translate for="track_open">Track opens</label>
+            <div translate class="description">See which recipients opened your message and calculate its Open Rate</div>
+        </div>
+        <div>
+            <input id="track_clicks" type="checkbox" ng-model="message.track_clicks" />
+            <label translate for="track_clicks">Track clicks</label>
+            <div translate class="description">See which recipients have clicked the links in your message and calculate its Click Rate</div>
+        </div>
+    </div>
+</form>
+
+<div class="fullScreen" id="editeurContainer" ng-if="$root.editeurVisible">
+    <iframe height="900" id="editeur" ng-src="{{$root.urlEditeur}}" frameborder="0"></iframe>
+</div>

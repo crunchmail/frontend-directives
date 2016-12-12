@@ -1,0 +1,30 @@
+<div class="register-form">
+    <img class="logo-login" src="css/img/logo-crunchmail.svg" alt="CrunchMail">
+    <form class="login" name="registerForm" ng-submit="register()">
+        <h3 translate>User</h3>
+        <div class="form-group">
+            <label translate for="username">Your email address</label>
+            <input required type="email" ng-model="newUser.user.identifier" id="username">
+            <p class="error" ng-show="errors.user.identifier.length > 0">{{errors.user.identifier[0]}}</p>
+        </div>
+        <div class="form-group">
+            <label translate for="password">Choose a password</label>
+            <input required type="password" ng-model="newUser.user.password" id="password">
+        </div>
+        <div class="form-group">
+            <label translate for="password">Confirm password</label>
+            <input type="password" ng-model="confirmPassword" id="password_confirm">
+        </div>
+        <h3 translate>Organization</h3>
+        <div class="form-group">
+            <label translate for="organization">Name of your organization</label>
+            <input required type="text" ng-model="newUser.organization.name" id="organization">
+        </div>
+        <div class="form-group">
+            <label translate for="organization">Contact email for your organization</label>
+            <input required type="email" ng-model="newUser.organization.contact_email" id="contact_email">
+        </div>
+        <button translate ng-disabled="passwordInvalid" class="btn" type="submit">Register</button>
+    </form>
+
+</div>

@@ -1,0 +1,54 @@
+{
+  "name": "frontend-directives",
+  "version": "0.7.8",
+  "license": "UNLICENSED",
+  "private": true,
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:crunchmail/frontend-directives.git"
+  },
+  "author": "Thomas LEBEAU tlebeau@oasiswork.fr",
+  "dependencies": {
+    "adm-dtp": "^1.1.4",
+    "angular": "^1.3.15",
+    "angular-drag-and-drop-lists": "^1.2.3",
+    "angular-gettext": "^2.3.8",
+    "angular-jwt": "0.0.9",
+    "angular-moment": "^0.10.3",
+    "angular-resizable": "^1.2.0",
+    "angular-route": "^1.3.15",
+    "angular-sanitize": "^1.5.6",
+    "angular-translate": "^2.7.0",
+    "angular-xeditable": "0.0.1",
+    "browserify": "^10.1.3",
+    "checklist-model": "^0.6.0",
+    "debowerify": "^1.3.1",
+    "lodash": "^3.10.1",
+    "moment": "^2.11.2",
+    "ng-csv": "^0.3.6",
+    "ng-dialog": "^0.5.1",
+    "ng-infinite-scroll": "^1.2.0",
+    "normalize.css": "^3.0.3",
+    "papaparse": "^4.1.2",
+    "raven-js": "^2.1.1",
+    "underscore": "^1.8.3",
+    "v-tabs": "^0.1.1"
+  },
+  "browser": {
+    "angular-csv-import": "./bower_components/angular-csv-import/dist/angular-csv-import.min.js",
+    "v-tabs": "./node_modules/v-tabs/dist/v-tabs.min.js"
+  },
+  "devDependencies": {
+    "angular-gettext-tools": "git+https://github.com/oasiswork/angular-gettext-tools.git#prioritize-attributes",
+    "gulp": "^3.8.11",
+    "gulp-angular-gettext": "^2.1.0",
+    "gulp-bump": "^2.4.0",
+    "gulp-debug": "^2.1.2",
+    "gulp-filter": "^4.0.0",
+    "gulp-git": "^1.11.3",
+    "gulp-load-plugins": "^1.3.0",
+    "gulp-tag-version": "^1.3.0",
+    "semver": "^5.3.0"
+  }
+}

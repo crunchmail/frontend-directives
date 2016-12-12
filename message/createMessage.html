@@ -1,0 +1,24 @@
+<ul class="tabsCreateMessage ul-reset">
+    <li ng-disabled="disabledBtn" ng-class="typeMessage === 'quick-message' && !duplicateVisible ? 'active' : ''" class="quick-message disabledBtn" ng-click="disabledBtn || changeTypeMessage('quick-message')"><span translate>Quick-Send</span> <span class="info" ng-show="disabledBtn" translate>coming soon...</span></li>
+    <li ng-class="typeMessage === 'news-message' && !duplicateVisible ? 'active' : ''" class="news-message" ng-click="changeTypeMessage('news-message')" translate>Newsletter</li>
+    <li ng-class="duplicateVisible ? 'active' : ''" class="duplicate-message" ng-click="duplicateVisible = !duplicateVisible" translate>Duplicate message</li>
+</ul>
+
+<div class="tabsContentMessage">
+    <div ng-hide="duplicateVisible">
+        <cm-form-message type="{{typeMessage}}" message="message"></cm-form-message>
+    </div>
+    <div class="duplicate-content" ng-show="duplicateVisible">
+        <h3 translate>Choose your message to be duplicated</h3>
+        <ul class="ul-reset listing-duplicated-message">
+            <li ng-if="item.status !== 'message_issues'" ng-repeat="item in listMessage" ng-click="duplicateMessage(item)">
+                <span ng-class="item.status"></span>{{item.name}}
+            </li>
+        </ul>
+        <button ng-hide="listMessage.length === totalMessage" class="btn x-small-btn" ng-disabled="disabledBtnNext" ng-click="moreMessages()" translate>More messages</button>
+    </div>
+</div>
+
+<div class="message-actions" ng-hide="$root.formValid">
+    <button ng-click="showEditor()" class="btn x-small-btn" translate>Next</button>
+</div>

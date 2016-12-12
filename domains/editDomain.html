@@ -1,0 +1,16 @@
+<form class="form_domain" ng-submit="updateDomain()" name="domainForm" novalidate>
+    <div class="form-group">
+        <label translate for="">Domain name:</label>
+        <input type="text" required ng-model="cloneDomain.name" placeholder="Eg: example.com" ng-focus="messageError = ''"/>
+        <p class="form-error">{{messageError}}</p>
+    </div>
+    <h3 class="titleAdvancedOptions" ng-click="showOptions = !showOptions">Options</h3>
+    <div ng-show="showOptions">
+        <div class="form-group">
+            <label translate for="">Custom application domain:</label>
+            <input type="text" ng-model="cloneDomain.app_domain"/>
+        </div>
+    </div>
+    <button translate class="btn x-small-btn" ng-click="close($event)">Cancel</button>
+    <button ng-disabled="checkUrl()" translate class="btn x-small-btn validate-btn" type="submit">Update</button>
+</form>

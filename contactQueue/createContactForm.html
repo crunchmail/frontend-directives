@@ -1,0 +1,82 @@
+<h2 translate>Create you form</h2>
+
+<div class="col col2 colMarge">
+  <div>
+    <form novalidate>
+      <div class="form-group">
+        <label translate for="formName">Name of the form</label>
+        <input type="text" id="formName" ng-model="contactqueue.properties.form_name" />
+      </div>
+      <ul class="ul-reset menu-draggable" id="menuDraggable" dnd-list="contactqueue.contact_fields">
+        <li ng-repeat="form in contactqueue.contact_fields"
+            dnd-draggable="form"
+            dnd-moved="contactqueue.contact_fields.splice($index, 1)"
+            dnd-effect-allowed="move"
+            dnd-disable-if="form.disabled || form.edition"
+            dnd-selected="models.selected = form"
+            ng-class="'disabled_'+form.disabled"
+            >
+            <div>{{form.name}}</div>
+            <div ng-if="!form.disabled">
+              <div class="action-buttons">
+                <button class="icon-create" ng-click="showForm(form, $index)"></button>
+                <button class="icon-trashcan" ng-click="removeProperty($index)"></button>
+              </div>
+              <div novalidate id="formProperty_{{$index}}" class="formProperty hidden formEditProperty">
+                <div class="form-group">
+                  <label translate for="">Name of the property</label>
+                  <input ng-model="form.name" type="text"/>
+                </div>
+                <div class="form-group">
+                  <label translate for="">Type</label>
+                  <select ng-model="form.type" id="">
+                    <option translate value="Char">Text</option>
+                    <option translate value="Integer">Integer</option>
+                    <option translate value="Float">Decimal</option>
+                    <option translate value="Boolean">Boolean</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+        </li>
+      </ul>
+    </form>
+    <div id="formEditCreate" class="formProperty formEditCreate">
+      <div class="form-group">
+        <label translate for="">Name of the property</label>
+        <input ng-model="property.name" type="text"/>
+      </div>
+      <div class="form-group">
+        <label translate for="">Type</label>
+        <select ng-model="property.type" id="">
+          <option translate value="Char">Text</option>
+          <option translate value="Integer">Integer</option>
+          <option translate value="Float">Decimal</option>
+          <option translate value="Boolean">Boolean</option>
+        </select>
+      </div>
+      <button translate class="btn small-btn" ng-click="createProperty()">Add property</button>
+    </div>
+  </div>
+  <div>
+    <h3 translate>Preview</h3>
+    <iframe id="formCreated" frameborder="0"></iframe>
+  </div>
+
+</div>
+<div>
+  <!-- <h3>Ajouter des vérifications sur le formulaire :</h3>
+  <ul class="ul-reset">
+    <li ng-repeat="policy in policies">
+      <input id="policy_{{$index}}" type="checkbox" ng-model="contactqueue.policies[policy.url]"/><label for="policy_{{$index}}">{{policy.name}}</label>
+    </li>
+  </ul> -->
+  <p>
+    <button translate id="createBtn" class="btn small-btn validate-btn" ng-click="createForm()">Create form</button>
+    <button translate id="updateBtn" class="btn small-btn hidden" ng-click="updateForm()">Update form</button>
+  </p>
+  <div id="codeToCopy" class="hidden">
+    <h3 translate>Code of your form</h3>
+    <pre>{{codeToCopy}}</pre>
+  </div>
+</div>

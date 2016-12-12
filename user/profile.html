@@ -1,0 +1,11 @@
+<h1 translate class="title-with-bg">My profile</h1>
+<div class="box">
+    <ul class="ul-reset profileInfo">
+        <li><strong translate>First name: </strong> {{userInfo.first_name}}</li>
+        <li><strong translate>Last name: </strong> {{userInfo.last_name}}</li>
+        <li><strong translate>Email: </strong> {{userInfo.email}}</li>
+        <li><strong translate>API key: </strong> {{userInfo.secret}}</li>
+    </ul>
+    <button class="x-small-btn btn classic-btn" ng-click="regenSecret()" translate>Regenerate API key</button>
+    <button class="x-small-btn btn classic-btn" ng-click="changePassword()" translate>Change my password</button>
+</div>

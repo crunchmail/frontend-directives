@@ -1,0 +1,60 @@
+<button translate
+        ng-click="addProperty()"
+        ng-class="{'is-active': showAddProperty}"
+        class="btn icon-add-circle-outline icon-absolute small-btn btn-action-right btn-collapse">Create a new property</button>
+<div class="form-group inline-label">
+    <label for="name_clist">Name of the contact list</label>
+    <input id="name_clist" type="text" ng-model="clist.name">
+</div>
+
+<cm-clist-add-property
+    class="clist-add-property"
+    ng-show="showAddProperty"
+    on-success="onAddProperty(result)"
+    on-cancel="addProperty()"
+    clist="clist"></cm-clist-add-property>
+
+<form ng-submit="editClist(clist)">
+
+  <div ng-show="clist.contact_fields.length > 0">
+
+    <table>
+      <thead>
+        <tr>
+          <th translate>Label</th>
+          <th translate>Type</th>
+          <th translate>Mandatory</th>
+          <th translate>Actions</th>
+        </tr>
+      </thead>
+      <tr ng-repeat="item in clist.contact_fields">
+        <td>
+            <input ng-model="item.name" type="text">
+            <p class="error-fixme" ng-if="errors.contact_fields[0]">{{ errors.contact_fields[0] }}</p>
+        </td>
+        <td>
+            <select ng-model="item.type">
+                <option ng-repeat="(key, value) in types" value="{{key}}">{{value}}</option>
+            </select>
+            <p class="error" ng-if="errors.contact_fields[item.name]">{{ errors.contact_fields[item.name][0] }}</p>
+        </td>
+        <td>
+            <input ng-model="item.required" id="prop-{{$index}}" type="checkbox">
+            <label translate id="propertyRequired" for="prop-{{$index}}">Mandatory</label>
+        </td>
+        <td class="width-td">
+            <button ng-click="deleteProperty(clist, item)"
+                    cm-confirm="Are you sure you want to delete this property?">×</button>
+        </td>
+      </tr>
+    </table>
+
+  </div>
+
+  <button ng-disabled="checkIfDisabled(clist)" class="btn small-btn validate-btn" type="submit">
+      <span ng-show='!update' translate>Create my contact list</span>
+      <span ng-show='update' translate>Update my contact list</span>
+  </button>
+  <p class="error" ng-if="errors.non_field_errors">{{ errors.non_field_errors[0] }}</p>
+
+</form>

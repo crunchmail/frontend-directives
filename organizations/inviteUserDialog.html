@@ -1,0 +1,9 @@
+<form class="form_organization" ng-submit="inviteUser()" name="inviteUserForm" novalidate>
+    <div class="form-group">
+        <label translate for="">Email address:</label>
+        <input type="email" required ng-model="guessUser.identifier" placeholder="Eg: name@company.com"/>
+        <p class="form-error">{{messageError}}</p>
+    </div>
+
+    <button ng-disabled="inviteUserForm.$invalid" translate class="btn x-small-btn validate-btn" type="submit">OK</button>
+</form>

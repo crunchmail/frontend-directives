@@ -1,0 +1,13 @@
+<div class="topBar">
+    <cm-drop-down class="menuProfile">
+        <button class="btn-dropDown" ng-click="showMenuDropDown($event)">{{$root.user.first_name}} {{$root.user.last_name | uppercase}} ▾</button>
+        <ul class="ul-reset">
+            <li><a class="menuAction" translate href="#/profile">My profile</a></li>
+            <li>
+                <div translate
+                class="menuAction"
+                ng-click="logout()">Logout</div>
+            </li>
+        </ul>
+    </cm-drop-down>
+</div>

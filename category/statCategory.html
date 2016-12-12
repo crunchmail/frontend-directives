@@ -1,0 +1,66 @@
+<div tabs>
+    <h1 class="title-with-bg">{{title}}</h1>
+    <cm-dcharts type="line" data="data">
+        <div class="spinner centerAbsolute"></div>
+    </cm-dcharts>
+    <div class="container-global-stats">
+        <h2 translate>Global stats</h2>
+        <div class="col col2 colMarge">
+            <div>
+                <div class="box messageStatBox">
+                    <div class="bigText">{{total}}</div>
+                    <div translate>Total mails sent</div>
+                </div>
+            </div>
+            <div>
+                <div class="box messageStatBox">
+                    <div class="bigText">{{totalOptOut}}</div>
+                    <div translate>Total optout</div>
+                </div>
+            </div>
+        </div>
+
+        <v-tabs class="tabs-menu menu-inline" horizontal active="tabsMenu.active">
+            <v-tab translate>List messages</v-tab>
+            <v-tab translate>Optout</v-tab>
+        </v-tabs>
+        <v-pages class="tabs-content" active="tabsMenu.active">
+            <v-page>
+                <h2 translate>List messages</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th translate class="tal">Message</th>
+                            <th translate class="tal">Stats</th>
+                        </tr>
+                    </thead>
+                    <tr ng-repeat="item in getMessages">
+                        <td class="w90">{{item.name}}</td>
+                        <td class="small-td"><a class="btn x-small-btn classic-btn icon-bar-chart icon-big" href="#/statsmessage/{{item.url | encodeUrl}}"></a></td>
+                    </tr>
+                </table>
+            </v-page>
+            <v-page>
+                <div ng-hide="getOptout.length > 0" translate>Nothing yet...</div>
+                <h2 ng-show="getOptout.length > 0" translate>Optout</h2>
+                <table ng-show="getOptout.length > 0">
+                    <thead>
+                        <tr>
+                            <th translate class="tal">Email</th>
+                            <th translate class="tal">Origin</th>
+                        </tr>
+                    </thead>
+                    <tr ng-repeat="mail in getOptout">
+                        <td>{{mail.address}}</td>
+                        <td>
+                            <div translate ng-if="mail.origin === 'web'">Unsubscribe with the form</div>
+                            <div translate ng-if="mail.origin === 'feedback-loop'">Unsubscribe with spam</div>
+                            <div translate ng-if="mail.origin === 'mail'">Unsubscribe with the unsubscribe link</div>
+                            <div translate ng-if="mail.origin === 'abuse'">Unsubscribe with abuse</div>
+                        </td>
+                    </tr>
+                </table>
+            </v-page>
+        </v-pages>
+    </div>
+</div>

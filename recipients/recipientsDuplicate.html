@@ -1,0 +1,31 @@
+<form ng-submit="passingSelected()" novalidate>
+    <p class="recipients-duplicate-info" translate>We detected duplicates emails, thank for selecting emails which you wish to keep</p>
+    <div class="recipients-duplicate-action-buttons">
+        <button translate class="btn x-small-btn btnModal" ng-click="close($event)">Cancel</button>
+        <button translate class="btn x-small-btn btnModal classic-btn" type="submit">Add</button>
+    </div>
+    <div id="recipients-duplicate-content" class="recipients-duplicate-content" cm-isolate-scrolling>
+        <table class="recipients-duplicate-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th ng-repeat="h in head track by $index">
+                        {{::h}}
+                    </th>
+                    <th>Source</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="b in duplicate | limitTo: limitDuplicate" ng-class="{'tr-separator': duplicate[$index].to !== duplicate[$index + 1].to}">
+                    <td><input ng-model="b.selected" type="radio" id="radio-{{$index}}" name="radio-{{b.to}}" value="true"><label for="radio-{{$index}}"></label></td>
+                    <td>{{::b.to}}</td>
+                    <td ng-repeat="p in b.properties">
+                        {{::p}}
+                    </td>
+                    <td>{{::b.source}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div ng-if="duplicate.length > 0" infinite-scroll-container="'#recipients-duplicate-content'" infinite-scroll-disabled="infinite.isBusy" infinite-scroll="showNext()" infinite-scroll-distance="0"></div>
+    </div>
+</form>

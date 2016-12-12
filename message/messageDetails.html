@@ -1,0 +1,97 @@
+<div class="message-details-top-bar">
+    <div ng-hide="readOnly">
+        <button cm-confirm="Are your sure you want to delete this message?" ng-disabled="message.status === 'sent'" ng-click="deleteMessage()" class="btn x-small-btn"><span translate>Delete</span></button>
+        <button ng-disabled="!updateForm" translate id="updateMessageBtn" ng-click="updateMessage()" class="btn x-small-btn">Update</button>
+        <buttton ng-hide="recipientsMessage.length > 0 || message.html === ''" class="btn x-small-btn classic-btn" ng-click="showPopInTestMess()" translate>Send a preview</buttton>
+        <cm-drop-down ng-hide="hideSending || recipientsMessage.length === 0" id="sendMessageBtn" class="validate-btn">
+            <button ng-disabled="!allContacts > 0" ng-click="sendMessage()" class="btn-dropDown" translate>Send</button>
+            <button ng-disabled="!allContacts > 0" ng-click="showMenuDropDown($event)" class="btn-dropDown">▾</button>
+            <ul class="ul-reset">
+                <li>
+                    <div translate
+                    class="menuAction">(soon) Scheduled sending</div>
+                </li>
+            </ul>
+        </cm-drop-down>
+    </div>
+</div>
+ <div class="resumeMessage">
+    <div>
+        <v-tabs class="tabs-message-details" horizontal active="tabsMenu.active">
+            <v-tab translate>Informations</v-tab>
+            <v-tab ng-click="openContacts()" translate ng-hide="btnCreateMsg">Recipients</v-tab>
+        </v-tabs>
+        <v-pages active="tabsMenu.active">
+            <v-page>
+                <div class="col col2 colMarge">
+                    <div>
+                        <cm-form-message message="message" read-only="readOnly"></cm-form-message>
+                        <div class="form-group">
+                            <h3 ng-if="message.attachments.length > 0" translate>Message attachments</h3>
+                            <ul ng-if="message.attachments.length > 0" class="ul-reset list-attachments">
+                                <li ng-repeat="attachment in message.attachments">
+                                    <span ng-hide="readOnly" class="icon-remove-circle" ng-click="deleteAttachment(attachment.url, $index)" cm-confirm="Are you sure you want to delete this attachment?"></span>{{attachment.filename}}
+                                </li>
+                            </ul>
+                            <div ng-hide="readOnly || btnCreateMsg" id="attachments">
+                                <cm-attachments></cm-attachments>
+                            </div>
+                        </div>
+                        <div class="form-group element-invisible">
+                            <label translate for="html">Html</label>
+                            <textarea id="html" ng-model="message.html"></textarea>
+                            <div translate class="error hidden">Please validate editor first</div>
+                        </div>
+                    </div>
+                    <div class="containerIframe" id="containerIframe">
+                        <div ng-click="popInMessage()" class="icon-expand btn-expand"></div>
+                        <iframe id="preview_html" class="previewIframe" frameborder="0"></iframe>
+
+                        <div class="actions-editeur" ng-hide="readOnly">
+                            <button ng-hide="htmlImported" translate
+                            id="sendHtmlToEditeur"
+                            ng-disabled="messageForm.name.$invalid || messageForm.sender_name.$invalid || messageForm.sender_email.$invalid || messageForm.subject.$invalid || message.category.length === 0"
+                            ng-click="sendHtmlToEditeur(message.id, message.name, message.url)"
+                            class="btn btn-openToothpaste small-btn">Edit content</button>
+
+                            <!-- <button class="btn small-btn" ng-show="htmlImported" translate ng-click="importHtml()">Update Html</button> -->
+                        </div>
+
+                    </div>
+                </div>
+            </v-page>
+            <v-page ng-hide="btnCreateMsg">
+                <cm-recipients ng-hide="readOnly"></cm-recipients>
+                <div ng-if="readOnly">
+                    <h3 translate>Recipients</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="recipient in allRecipientsReadOnly | limitTo: showAllRecipients : beginAllRecipients">
+                                <td>
+                                    {{recipient.to}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div ng-show="allRecipientsReadOnly.length > showAllRecipients" ng-pager
+                        current-page="{{currentPageAllRecipients}}"
+                        total-pages="{{(allRecipientsReadOnly.length / showAllRecipients) | number:0}}"
+                        page-changed="pagedAllRecipients(pageNum)"
+                        enable-jump-controls="true">
+                    </div>
+                </div>
+            </v-page>
+        </v-pages>
+        <div class="container-inline-title">
+            <div class="user-message error" ng-if="message.status === 'message_issues'">
+                <p>{{message.msg_issue}}</p>
+            </div>
+        </div>
+
+    </div>
+</div>

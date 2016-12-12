@@ -1,0 +1,14 @@
+<form ng-submit="mergeClist(clistList, form)">
+  <div class="form-group form-contact-list">
+    <label translate id="clistName">Merge list</label>
+    <input ng-model="form.name" for="clistName" type="text" required="required">
+    <p translate>The following lists will be merged:</p>
+    <ul>
+      <li ng-repeat="l in clistList">
+        {{ l.name }}
+      </li>
+    </ul>
+  </div>
+  <p class="error" ng-if="errors.non_field_errors">{{ errors.non_field_errors[0] }}</p>
+  <button translate class="btn small-btn" type="submit">Merge</button>
+</form>

@@ -1,0 +1,33 @@
+<form class="box" ng-submit="addProperty(clist, form)">
+    <div class="form-group form-add-property">
+        <p class="inline-label">
+            <label translate for="propertyName">Name</label>
+            <input ng-model="form.name" id="propertyName" type="text" required="required" />
+        </p>
+        <p class="error" ng-if="errors.contact_fields[0]">{{ errors.contact_fields[0] }}</p>
+        <div class="inline-label">
+            <label>Type</label>
+            <div class="customSelect">
+                <select ng-model="form.type" for="propertyType" required="required">
+                    <option translate value="">Select a type</option>
+                    <option ng-repeat="(key, value) in types" value="{{key}}">{{value}}</option>
+                </select>
+                <div translate class="customSelectDiv" ng-if="form.type === '' || form.type === undefined">
+                    Select a type
+                </div>
+                <div class="customSelectDiv" ng-if="form.type !== '' && form.type !== undefined">{{form.type}}</div>
+            </div>
+        </div>
+        <p>
+            <input ng-model="form.required" id="propertyRequired" type="checkbox">
+            <label translate for="propertyRequired">Mandatory</label>
+        </p>
+
+        <p class="error" ng-if="errors.contact_fields[form.name]">{{ errors.contact_fields[form.name][0] }}</p>
+    </div>
+    <p class="error" ng-if="errors.non_field_errors">{{ errors.non_field_errors[0] }}</p>
+    <div class="tar">
+        <button translate class="btn x-small-btn" type="reset" ng-click="onCancel()">Cancel</button>
+        <button translate class="btn x-small-btn validate-btn" type="submit">Create</button>
+    </div>
+</form>

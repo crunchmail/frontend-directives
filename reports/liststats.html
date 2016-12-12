@@ -1,0 +1,37 @@
+<div class="container_with_filters">
+    <h1 class="title-with-bg" translate>Your reports</h1>
+    <a translate href="#/create-message" class="small-btn btn icon-add-circle-outline icon-absolute btn-action-right">Create a message</a>
+    <cm-status-legend filters-data="reportFilters" filter-fct="filterFct(filterArray)" init="init" activate-disabled="true"></cm-status-legend>
+    <div class="form-group">
+        <input ng-model="search.name" type="text" placeholder="Search messages..." ng-focus="infinite.isBusy = true" ng-blur="infinite.isBusy = false" />
+    </div>
+    <table class="table-status table-stats" ng-if="getMessages.length > 0">
+        <thead>
+            <tr>
+                <th translate>Status</th>
+                <th translate>Message</th>
+                <th translate>Actions</th>
+            </tr>
+        </thead>
+        <tr ng-repeat="message in getMessages | filter:search">
+            <td title="{{message.status}}" class="status-{{message.status}}"><div></div></td>
+            <td>
+                <a href="#/statsmessage/{{message.url | encodeUrl}}">{{message.subject}}</a>
+                <cm-dcharts data="message.dataProgress" type="progressbar"></cm-dcharts>
+            </td>
+            <td class="width-td">
+                <cm-drop-down>
+                    <a translate class="btn-dropDown" href="#/statsmessage/{{message.url | encodeUrl}}">Reports</a>
+                    <button class="btn-dropDown" ng-click="showMenuDropDown($event)">▾</button>
+                    <ul class="ul-reset">
+                        <li>
+                            <a translate href="#/detailmessage/{{message.url | encodeUrl}}">Details</a>
+                        </li>
+                    </ul>
+                </cm-drop-down>
+
+            </td>
+        </tr>
+    </table>
+    <div ng-if="count > 50" infinite-scroll-disabled="infinite.isBusy" infinite-scroll="getMoreMessages()" infinite-scroll-distance="0"></div>
+</div>

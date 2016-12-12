@@ -1,0 +1,25 @@
+<h1 ng-if="getMessages.length > 0" translate class="tac dash-titleH1">Dashboard</h1>
+<h1 ng-show="noMessage" translate class="tac dash-titleH1 ng-hide">Welcome to Crunchmail</h1>
+<div class="tac ng-hide" ng-show="noMessage">
+    <a translate href="#/create-message" class="btn small-btn validate-btn" >Create your first message</a>
+</div>
+<ul class="ul-reset dash-feed" ng-if="getMessages.length > 0">
+    <li ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="message in getMessages">
+        <div class="dash-status status-{{message.status}}"><div></div></div>
+        <div class="dash-date">{{message.dashDate}}</div>
+        <div class="dash-title">
+            <a ng-if="message.status === 'sent'" href="#/statsmessage/{{message.url | encodeUrl}}">
+                {{message.name}}</br>
+                <span>{{message.subject}}</span>
+            </a>
+            <a ng-if="message.status === 'message_issues' || message.status === 'message_ok' || message.status === 'sending'" href="#/detailmessage/{{message.url | encodeUrl}}/{{message.status}}">
+                {{message.name}}</br>
+                <span>{{message.subject}}</span>
+            </a>
+        </div>
+        <a translate ng-if="message.status === 'sent' || message.status === 'sending'" class="btn x-small-btn btn-stats" href="#/statsmessage/{{message.url | encodeUrl}}">Report</a>
+        <a translate ng-if="message.status === 'message_issues' || message.status === 'message_ok'" class="btn x-small-btn btn-stats" href="#/detailmessage/{{message.url | encodeUrl}}/{{message.status}}">Edit</a>
+    </li>
+</ul>
+
+<div ng-if="getMessages.length > 0" infinite-scroll-disabled="infinite.isBusy" infinite-scroll="infinite.getNextElements(getMessages)" infinite-scroll-distance="0"></div>

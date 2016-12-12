@@ -1,0 +1,176 @@
+    <div class="fixed-sidebar">
+    <h1 translate class="title-with-bg">Message Report</h1>
+    <ul class="ul-reset info-message icon-medium box" ng-if="send_date || category">
+        <li><strong translate>Message name:</strong> {{message_name}}</li>
+        <li><strong translate>Subject:</strong> {{subject}}</li>
+        <li><strong translate>Recipients:</strong> {{total}}</li>
+        <li ng-if="category"><strong translate>Category:</strong> <a href="#/statscategory/{{category_url | encodeUrl}}">{{category}}</a></li>
+        <li ng-if="send_date"><strong translate>Sending started on</strong> {{send_date}}</li>
+        <li ng-if="completion_date"><strong translate>Sending ended on</strong> {{completion_date}}</li>
+        <li ng-if="statsSending" class="statsSending">
+            <strong translate>Sending progress:</strong>
+            <dcharts data="statsSending" type="progressbar"></dcharts>
+        </li>
+    </ul>
+    <div class="stats">
+        <div class="col col3 colMarge">
+            <cm-dcharts class="box" data="dataOpening" type="donut">
+                <h2 translate>Open rate</h2>
+            </cm-dcharts>
+            <cm-dcharts class="box" data="dataClickRate" type="donut">
+                <h2 translate>Click rate</h2>
+            </cm-dcharts>
+            <cm-dcharts class="box" data="dataOptOut" type="donut">
+                <h2 translate>Optout rate</h2>
+            </cm-dcharts>
+        </div>
+        <div class="col col3 colMarge">
+            <div>
+                <div class="box messageStatBox">
+                    <div class="bigText">{{open}}</div>
+                    <div translate>Mails opened</div>
+                </div>
+            </div>
+            <div>
+                <div class="box messageStatBox">
+                    <div class="bigText">{{clicked}}</div>
+                    <div translate>Mails clicked</div>
+                </div>
+            </div>
+            <div>
+                <div class="box messageStatBox">
+                    <div class="bigText">{{totalOptOut}}</div>
+                    <div translate>Total optout</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <v-tabs class="tabs-menu menu-inline" horizontal active="tabsMenu.active">
+        <v-tab translate>Recipients list</v-tab>
+        <v-tab translate>Messages links</v-tab>
+        <v-tab translate>Optouts</v-tab>
+    </v-tabs>
+
+    <v-pages class="tabs-content stats-tabs" active="tabsMenu.active">
+        <v-page>
+            <h2 translate>Recipients list</h2>
+            <cm-status-legend filters-data="recipientFilterFirstPart" filter-fct="filterFct(filterArray)" init="init"  activate-disabled="false"></cm-status-legend>
+            <cm-status-legend filters-data="recipientFilterSecondPart" filter-fct="filterFct_second(filterArray)" init="init_second"  activate-disabled="false"></cm-status-legend>
+            <div class="form-group search_form">
+                <input ng-model="search.to" type="text" placeholder="Search emails..." ng-focus="infinite.isBusy = true" ng-blur="infinite.isBusy = false" />
+                <button class="btn x-small-btn classic-btn export-csv-btn" ng-click="getStatsCsv()" translate>Export CSV</button>
+            </div>
+            <table class="table-status">
+                <thead>
+                    <tr>
+                        <th translate>Status</th>
+                        <th translate class="tal">Email</th>
+                        <th translate>Clicked</th>
+                        <th translate>Opened</th>
+                        <th translate>Actions</th>
+                    </tr>
+                </thead>
+                <tr ng-repeat-start="mail in getMails | filter:search">
+                   <td title="{{mail.delivery_status}}" class="status-{{mail.delivery_status}}"><div></div></td>
+                   <td>
+                       {{mail.to}}
+                   </td>
+                   <td class="size-td"><div class="icon-mouse" ng-if="mail.tracking.clicked.length > 0"></div></td>
+                   <td class="size-td"><div class="icon-visibility" ng-if="mail.tracking.opened != null"></div></td>
+                   <td>
+                       <button translate class="btn classic-btn x-small-btn" ng-click="showDetail(mail)">Details</button>
+                   </td>
+               </tr>
+               <tr ng-repeat-end ng-show="mail.detailOpen">
+                   <td colspan="5">
+                       <div ng-show="mail.delivery_status === 'sending' || mail.delivery_status === 'queued'">
+                           <div><span translate>Sending since</span> <strong>{{mail.status_log.sending.date}}</strong> <span translate>at</span> <strong>{{mail.status_log.sending.seconds}}</strong></div>
+                       </div>
+                       <div ng-show="mail.delivery_status === 'delivered'">
+                           <div><span translate>Sent on</span> <strong>{{mail.status_log.sending.date}}</strong> <span translate>at</span> <strong>{{mail.status_log.sending.seconds}}</strong></div>
+                           <div><span translate>Delivered on</span> <strong>{{mail.status_log.delivered.date}}</strong> <span translate>at</span> <strong>{{mail.status_log.delivered.seconds}}</strong></div>
+                       </div>
+                       <div ng-show="mail.tracking.opened !== null">
+                           <div><span translate>Opened on</span> <strong>{{mail.opened.date}}</strong> <span translate>at</span> <strong>{{mail.opened.seconds}}</strong></div>
+                       </div>
+                       <div ng-show="mail.delivery_status === 'ignored' || mail.delivery_status === 'dropped' || mail.delivery_status === 'bounced'">
+                           <strong>Message : </strong><span>{{mail.status_log[mail.delivery_status].raw_msg}}</span>
+                       </div>
+                       <div ng-show="mail.tracking.clicked.length > 0">
+                           <ul>
+                               <li ng-repeat="tracking in mail.tracking.clicked">
+                                   <div ng-repeat="(click_url, click_date) in tracking">
+                                       <a target="_blank" href="{{click_url}}">{{click_url}}</a>
+                                       <div>
+                                           <strong translate>First clicked on</strong> <cm-dir-date-js date='click_date'></cm-dir-date-js>
+                                       </div>
+                                   </div>
+                               </li>
+                           </ul>
+                       </div>
+                   </td>
+               </tr>
+            </table>
+            <div ng-if="getMails.length > 0" infinite-scroll-disabled="infinite.isBusy" infinite-scroll="nextMails()" infinite-scroll-distance="0"></div>
+        </v-page>
+        <v-page>
+            <div class="container_links">
+                <div ng-show="trackings.clicked_total === undefined" translate>Nothing yet...</div>
+                <h2 ng-show="trackings.clicked_total  !== undefined" translate>Links clicked</h2>
+                <table ng-show="trackings.clicked_total  !== undefined" class="links_table">
+                    <thead>
+                        <tr>
+                            <th translate>URL</th>
+                            <th translate class="tac">Unique clicks</th>
+                            <th translate class="tar">Total clicks</th>
+                        </tr>
+                    </thead>
+                    <tr ng-repeat="(k, v) in trackings.clicked_total">
+                        <td><a href="{{k}}">{{k}}</a></td>
+                        <td class="tac">{{trackings.clicked[k]}}</td>
+                        <td class="tar">{{v}}</td>
+                    </tr>
+                </table>
+            </div>
+        </v-page>
+        <v-page>
+            <div class="container_optout">
+                <h2 translate>Opt-outs</h2>
+                <table class="optout_table">
+                    <tr>
+                        <td translate>Via web form or unsubscribe link/email</td>
+                        <td>{{mail + web}}</td>
+                    </tr>
+                    <tr>
+                        <td translate>Via spam or abuse reports</td>
+                        <td>{{feedback_loop + abuse}}</td>
+                    </tr>
+                    <tr>
+                        <td translate>After too many bounces</td>
+                        <td>{{bounce}}</td>
+                    </tr>
+                </table>
+                <h2 ng-hide="getOptout.length === 0">Mails</h2>
+                <table class="table-status" ng-hide="getOptout.length === 0">
+                    <thead>
+                        <tr>
+                            <th translate class="tal">Email</th>
+                            <th translate class="tal">Origin</th>
+                        </tr>
+                    </thead>
+                    <tr ng-repeat="mail in getOptout">
+                        <td>{{mail.address}}</td>
+                        <td>
+                            <div translate ng-if="mail.origin === 'web'">Opt-out via web form</div>
+                            <div translate ng-if="mail.origin === 'feedback-loop'">Opt-out via spam report</div>
+                            <div translate ng-if="mail.origin === 'mail'">Opt-out via unsubscribe link/email</div>
+                            <div translate ng-if="mail.origin === 'abuse'">Opt-out via abuse report</div>
+                            <div translate ng-if="mail.origin === 'bounce'">Opt-out after too many bounces</div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </v-page>
+    </v-pages>
+</div>

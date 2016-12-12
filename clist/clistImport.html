@@ -1,0 +1,157 @@
+<div>
+    <h2 ng-model="clist.name">Import contacts for the list {{clist.name}}</h2>
+
+    <div class="errors" ng-if="errors" ng-hide="errors.isHidden">
+
+        <h3 translate>Import failed due to validation errors:</h3>
+        <div ng-if="errors.duplicates.length > 0">
+
+            <p translate translate-n="errors.duplicates.length"  translate-plural="{{ errors.duplicates.length }} duplicates found">1 duplicate found</p>
+            <button type="button" ng-csv="errors.duplicates" filename="duplicates.csv" translate class="btn btn-right">Export as CSV</button>
+        </div>
+        <div ng-if="errors.validation_errors.length > 0">
+            <p translate translate-n="errors.validation_errors.length" translate-plural="{{ errors.validation_errors.length}} validation errors">1 validation error</p>
+            <button type="button" ng-csv="errors.validation_errors" csv-label="true" filename="errors.csv" translate class="btn btn-right x-small-btn">Export as CSV</button>
+        </div>
+        <p ng-if="errors.no_address > 0" translate translate-n="errors.no_address" translate-plural="{{ errors.no_address }} rows without address" class="btn btn-right">1 row without address</p>
+        <button class="close-btn" ng-click="errors.isHidden = true">×</button>
+    </div>
+
+
+    <v-tabs class="tabs-message-details clist-tabs-menu" horizontal active="tabsMenu.active">
+        <v-tab translate>Add manually</v-tab>
+        <v-tab translate>Import CSV file</v-tab>
+    </v-tabs>
+    <v-pages active="tabsMenu.active">
+        <v-page>
+            <form ng-submit="previewImportClist()">
+                <textarea cols="20" rows="10" ng-model="form.content" placeholder="email, lastname, firstname, age
+email-1@exemple.com, lastname-1, firstname-1, 30
+email-2@exemple.com, lastname-2, firstname-2, 40
+email-3@exemple.com, lastname-3, firstname-3, 20"></textarea>
+                <button translate
+                ng-click=""
+                type="reset"
+                class="btn x-small-btn">Cancel</button>
+
+                <button translate
+                ng-disabled="!form.content"
+                type="submit"
+                class="btn x-small-btn validate-btn">Ok</button>
+            </form>
+        </v-page>
+        <v-page>
+            <div class="form-group importCsv">
+                <h3 translate>Select a Csv</h3>
+                <cm-csv-upload csv-result="csv.result" csv-header="csv.header" csv-name="csv.name" callback="handleCSV(csv)"></cm-csv-upload>
+            </div>
+            <!-- <ng-csv-import id="import-csv" content="csv.content" header="csv.header" separator="csv.separator" result="csv.result"></ng-csv-import> -->
+
+
+
+        </v-page>
+    </v-pages>
+
+    <div ng-show="csv.result">
+        <form ng-submit="importClist()">
+            <h2 translate>Match and select the type of each field</h2>
+
+            <fieldset ng-class="{'isCollapse': hideFieldsAddress}" class="clist-import-fieldset">
+                <h3 ng-click="hideFieldsAddress = !hideFieldsAddress" translate>Address field</h3>
+                <p ng-hide="hideFieldsAddress" translate>Sample</p>
+                <ul ng-hide="hideFieldsAddress">
+                    <li ng-repeat="content in fields.samples[fields.address] track by $index">{{ content }}</li>
+                </ul>
+            </fieldset>
+
+            <fieldset class="clist-import-fieldset" ng-class="{'isCollapse': hideFields}" ng-repeat="name in fields.custom track by $index">
+                <div class="col col2 colMarge">
+                    <div>
+                        <h3 translate ng-click="hideFields = !hideFields">Sample for field "{{ name }}"</h3>
+                        <div ng-hide="hideFields" ng-if="fields.samples[name].length > 0">
+                            <ul>
+                                <li ng-repeat="content in fields.samples[name] track by $index">{{ content }}</li>
+                            </ul>
+                        </div>
+
+                        <p translate ng-if="fields.samples[name].length == 0">
+                            No data found for field "{{ name }}".
+                        </p>
+                    </div>
+                    <div>
+                        <div ng-hide="fields.samples[name].length == 0 || hideFields">
+
+                            <div ng-if="clist.contact_fields.length">
+
+                                <input name="existing[{{$index}}]"
+                                type="radio"
+                                ng-model="fields.matching[$index].create"
+                                value="0"
+                                id="existing-{{$index}}">
+
+                                <label translate for="existing-{{$index}}">Existing field</label>
+
+                                <select ng-model="fields.matching[$index].name"
+                                    ng-disabled="fields.matching[$index].create !== '0'"
+                                    ng-change="fields.matching[$index].create = '0'">
+
+                                    <option translate selected="selected"
+                                    value="">Select an existing field</option>
+                                    <option ng-repeat="prop in clist.contact_fields"
+                                    value="{{prop.name}}">{{prop.name}}</option>
+
+                                </select>
+                            </div>
+
+                            <input name="existing[{{$index}}]"
+                            type="radio"
+                            ng-model="fields.matching[$index].create"
+                            value="-1"
+                            id="ignore-{{$index}}">
+
+                            <label translate for="ignore-{{$index}}">Ignore this field</label>
+
+                            <input name="existing[{{$index}}]"
+                            type="radio"
+                            ng-model="fields.matching[$index].create"
+                            value="1"
+                            id="new-{{$index}}">
+
+                            <label translate for="new-{{$index}}">New field</label>
+                            <input type="text"
+                            ng-required="fields.matching[$index].create === 1"
+                            ng-model="fields.matching[$index].new"
+                            ng-disabled="fields.matching[$index].create !== '1'">
+                            <div ng-hide="fields.matching[$index].create !== '1'">
+
+                                <!-- TODO: directive ? -->
+                                <select ng-model="fields.matching[$index].type" id="propertyType">
+
+                                    <option ng-repeat="(key, type) in types"
+                                    value="{{key}}">{{type}}</option>
+
+                                </select>
+
+                                <input id="field-required-{{$index}}"
+                                type="checkbox"
+                                ng-model="fields.matching[$index].required">
+                                <label translate for="field-required-{{$index}}">Mandatory</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+
+            <button translate
+            ng-click="csv.result = ''"
+            type="reset"
+            class="btn icon-absolute x-small-btn">Cancel</button>
+            <button translate
+            type="submit"
+            class="btn icon-absolute x-small-btn validate-btn">Ok</button>
+        </form>
+    </div>
+</div>
+
+<cm-clist-edit ng-hide="csv.result" cm-url="{{ clist.url }}" ></cm-list-edit>

@@ -1,0 +1,14 @@
+<div class="connexion-form">
+  <img class="logo-login" src="css/img/logo-crunchmail.svg" alt="CrunchMail">
+  <form class="login" name="resetForm">
+    <h3 translate>Forgot your password?</h3>
+    <div class="form-group" ng-hide="resetDone">
+      <input placeholder="Your email address" required type="email" ng-model="user.identifier" id="username">
+      <div translate ng-show="resetForm.identifier.$dirty && resetForm.identifier.$invalid" class="error">Your email address</div>
+    </div>
+    <button translate ng-hide="resetDone" ng-disabled="resetForm.$invalid" class="btn" ng-click="resetPassword()">Reset my Password</button>
+    <p ng-show="resetDone" translate>An email with instructions to reset your password has been sent to your email address.</p>
+    <p ng-show="resetDone" translate>See you soon!</p>
+    <a translate class="returnLoginLink" href="#/">Back to login page</a>
+  </form>
+</div>

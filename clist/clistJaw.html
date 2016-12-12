@@ -1,0 +1,12 @@
+<div class="jaw-clist-container">
+    <h3>Contacts list</h3>
+    <ul ng-hide="showNoListMsg" class="ul-reset jaw-clist">
+        <li ng-class="{'is-selected': list.selected}" ng-hide="list.isHidden" ng-repeat="list in jawClists" ng-click="itemClicked($index, list, jawClists)">
+            {{list.name}}
+            <span class="nbre">{{list.contacts_count}}</span>
+            <button translate ng-click="addList(list)" class="btn icon-add-circle-outline icon-alone"></button>
+        </li>
+    </ul>
+    <div class="msg-no-element" ng-show="showNoListMsg" translate> No list to add</div>
+    <button ng-hide="checkHide(jawClists)" class="btn btn-add classic-btn ng-scope" ng-disabled="checkSelected(jawClists)" ng-click="addListSelected(jawClists)" translate>Add</button>
+</div>

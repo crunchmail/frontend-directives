@@ -1,0 +1,8 @@
+<button translate class="btn x-small-btn" ng-click="addInput()">Add attachment</button>
+<div class="description" translate>Maximum size per attachment: 2 Mo</div>
+<ul class="ul-reset list-attachments">
+    <li ng-repeat="input in arrayInput track by $index">
+        <span class="icon-remove-circle" ng-click="removeInput($index)"></span>
+        <div class="inputAttachments" data-id="{{$index}}" ng-bind-html="to_trusted(input.html)"></div>
+    </li>
+</ul>
