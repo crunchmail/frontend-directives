@@ -5,6 +5,15 @@ NG_DOCS={
   "pages": [
     {
       "section": "api",
+      "id": "index",
+      "shortName": "Docs Top",
+      "type": "overview",
+      "moduleName": "Docs Top",
+      "shortDescription": "Description",
+      "keywords": "api components crunchmail description docs front overview portal structure top zimlet"
+    },
+    {
+      "section": "api",
       "id": "_directives.directive:cmChangeLanguage",
       "shortName": "cmChangeLanguage",
       "type": "directive",
@@ -710,7 +719,7 @@ NG_DOCS={
   },
   "__file": "_FAKE_DEST_/js/docs-setup.js",
   "__options": {
-    "startPage": "/install",
+    "startPage": "/api",
     "scripts": [
       "js/angular.min.js",
       "js/angular-animate.min.js",
@@ -731,7 +740,7 @@ NG_DOCS={
   },
   "html5Mode": false,
   "editExample": true,
-  "startPage": "/install",
+  "startPage": "/api",
   "scripts": [
     "js/angular.min.js",
     "js/angular-animate.min.js",
