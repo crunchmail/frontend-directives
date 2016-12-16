@@ -1,0 +1,186 @@
+<h1><code ng:non-bindable="">recipientsMessage</code>
+<div><span class="hint">service in module <code ng:non-bindable="">recipients</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="recipients-factory-page recipients-factory-recipientsmessage-page"><p>Utils for recipients</p>
+</div></div>
+<h2 id="dependencies">Dependencies</h2>
+<ul class="dependencies"><li><code ng:non-bindable=""><a href="#/https://docs.angularjs.org/api/ng/service/$rootScope">$rootScope</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/https://docs.angularjs.org/api/ng/service/$log">$log</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/https://github.com/likeastore/ngDialog">ngDialog</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/_factory.factory:globalFunction">globalFunction</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/Lodash">Lodash</a></code>
+</li>
+</ul>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_addsourcemembers">addSourceMembers(arr)</h3>
+<div class="addsourcemembers"><div class="addsourcemembers-page"><p>To each members in Distribution list, add a source</p>
+</div><h5 id="methods_addsourcemembers_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>arr</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="docs-page"><p>Passing array with recipients</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_checkduplicate">checkDuplicate(arrPrepared, initArr, callback, headerCsv)</h3>
+<div class="checkduplicate"><div class="checkduplicate-page"><p>Check if we have duplicate in array</p>
+</div><h5 id="methods_checkduplicate_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>arrPrepared</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="docs-page"><p>array Converted to post to Api</p>
+</div></td></tr><tr><td>initArr</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="docs-page"><p>original array</p>
+</div></td></tr><tr><td>callback</td><td><a href="" class="label type-hint type-hint-function">Function</a></td><td><div class="docs-page"><p>Callback function to post to API</p>
+</div></td></tr><tr><td>headerCsv</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="docs-page"><p>header csv for csv recipients</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_cleanemail">cleanEmail(email)</h3>
+<div class="cleanemail"><div class="cleanemail-page"><p>Util function to clean an email</p>
+</div><h5 id="methods_cleanemail_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>email</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="docs-page"><p>Email</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_contactsduplicateserror">contactsDuplicatesError(errors)</h3>
+<div class="contactsduplicateserror"><div class="contactsduplicateserror-page"><p>Return a string with all duplicates errors from API</p>
+</div><h5 id="methods_contactsduplicateserror_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>errors</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="docs-page"><p>Duplicates errors collection from API</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_contactsvalidationserror">contactsValidationsError(errors)</h3>
+<div class="contactsvalidationserror"><div class="contactsvalidationserror-page"><p>Return a string with all validations errors from API</p>
+</div><h5 id="methods_contactsvalidationserror_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>errors</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="docs-page"><p>Validations errors collection from API</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_deletecontact">deleteContact(idx, arr)</h3>
+<div class="deletecontact"><div class="deletecontact-page"><p>Delete contact in array</p>
+</div><h5 id="methods_deletecontact_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>idx</td><td><a href="" class="label type-hint type-hint-number">Number</a></td><td><div class="docs-page"><p>array index</p>
+</div></td></tr><tr><td>arr</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="docs-page"><p>Data collection</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_extracturl">extractUrl(arr)</h3>
+<div class="extracturl"><div class="extracturl-page"><p>Return an array with url</p>
+</div><h5 id="methods_extracturl_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>arr</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="docs-page"><p>Array</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_filtercontacts">filterContacts(obj)</h3>
+<div class="filtercontacts"><div class="filtercontacts-page"><p>Filter contact depend of recursiveFilterTreeContacts</p>
+</div><h5 id="methods_filtercontacts_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>obj</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="docs-page"><p>Object with data</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_finddeep">findDeep(obj, key)</h3>
+<div class="finddeep"><div class="finddeep-page"><p>Utils function to find deep object</p>
+</div><h5 id="methods_finddeep_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>obj</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="docs-page"><p>Object with data</p>
+</div></td></tr><tr><td>key</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="docs-page"><p>Key</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_findelement">findElement(source, item, type)</h3>
+<div class="findelement"><div class="findelement-page"><p>return a element to disable selected, isHidden and isTagged</p>
+</div><h5 id="methods_findelement_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>source</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="docs-page"><p>Object with data</p>
+</div></td></tr><tr><td>item</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="docs-page"><p>Object to find in source</p>
+</div></td></tr><tr><td>type</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="docs-page"><p>Type to find ex: source_ref</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_getduplicate">getDuplicate(arr, headerCsv)</h3>
+<div class="getduplicate"><div class="getduplicate-page"><p>Separate single contact and duplicate to display to user</p>
+</div><h5 id="methods_getduplicate_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>arr</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="docs-page"><p>array Converted to post to Api</p>
+</div></td></tr><tr><td>headerCsv</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="docs-page"><p>header csv for csv recipients</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_groupbyref">groupByRef(inArr)</h3>
+<div class="groupbyref"><div class="groupbyref-page"><p>Group by source_ref</p>
+</div><h5 id="methods_groupbyref_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>inArr</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="docs-page"><p>Data collection</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_hidespinner">hideSpinner()</h3>
+<div class="hidespinner"><div class="hidespinner-page"><p>Shortcut for hide the spinner</p>
+</div></div>
+</li>
+<li><h3 id="methods_multipleselect">multipleSelect(idx, arr)</h3>
+<div class="multipleselect"><div class="multipleselect-page"><p>Multi selection for recipients</p>
+</div><h5 id="methods_multipleselect_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>idx</td><td><a href="" class="label type-hint type-hint-number">Number</a></td><td><div class="docs-page"><p>Array index</p>
+</div></td></tr><tr><td>arr</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="docs-page"><p>Passing recipients array</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_prepareclistcontacts">prepareClistContacts(list, arr, url)</h3>
+<div class="prepareclistcontacts"><div class="prepareclistcontacts-page"><p>Prepare Contact list recipient to post to API</p>
+</div><h5 id="methods_prepareclistcontacts_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>list</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="docs-page"><p>Passing contact list object from API</p>
+</div></td></tr><tr><td>arr</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="docs-page"><p>Passing array with recipients</p>
+</div></td></tr><tr><td>url</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="docs-page"><p>Passing API url</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_preparecontact">prepareContact(arr, url)</h3>
+<div class="preparecontact"><div class="preparecontact-page"><p>Prepare multiple recipients to post to API</p>
+</div><h5 id="methods_preparecontact_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>arr</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="docs-page"><p>Recipient array</p>
+</div></td></tr><tr><td>url</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="docs-page"><p>API url</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_preparesinglecontact">prepareSingleContact(contact, url)</h3>
+<div class="preparesinglecontact"><div class="preparesinglecontact-page"><p>Prepare a single recipient to post to API</p>
+</div><h5 id="methods_preparesinglecontact_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>contact</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="docs-page"><p>Recipient to prepare</p>
+</div></td></tr><tr><td>url</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="docs-page"><p>API url</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_preparesinglemanualcontact">prepareSingleManualContact(item, url)</h3>
+<div class="preparesinglemanualcontact"><div class="preparesinglemanualcontact-page"><p>Prepare a manual contact to post to API</p>
+</div><h5 id="methods_preparesinglemanualcontact_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>item</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="docs-page"><p>Passing item</p>
+</div></td></tr><tr><td>url</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="docs-page"><p>Passing API url</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_prepatesinglecontactcsv">prepateSingleContactCsv(item, url)</h3>
+<div class="prepatesinglecontactcsv"><div class="prepatesinglecontactcsv-page"><p>Prepare a csv contact to post to API</p>
+</div><h5 id="methods_prepatesinglecontactcsv_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>item</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="docs-page"><p>Passing item</p>
+</div></td></tr><tr><td>url</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="docs-page"><p>Passing API url</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_prepatesinglecontactcsv">prepateSingleContactCsv(arr, url)</h3>
+<div class="prepatesinglecontactcsv"><div class="prepatesinglecontactcsv-page"><p>Prepare multiple csv contact to post to API</p>
+</div><h5 id="methods_prepatesinglecontactcsv_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>arr</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="docs-page"><p>Passing array with csv recipients</p>
+</div></td></tr><tr><td>url</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="docs-page"><p>Passing API url</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_recursivefiltertreecontacts">recursiveFilterTreeContacts(obj, result)</h3>
+<div class="recursivefiltertreecontacts"><div class="recursivefiltertreecontacts-page"><p>Recursive function to return tree contacts</p>
+</div><h5 id="methods_recursivefiltertreecontacts_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>obj</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="docs-page"><p>Object with data</p>
+</div></td></tr><tr><td>result</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="docs-page"><p>Use for recursive function</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_removeselected">removeSelected(v, k)</h3>
+<div class="removeselected"><div class="removeselected-page"><p>Remove a selected contact</p>
+</div><h5 id="methods_removeselected_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>v</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="docs-page"><p>value</p>
+</div></td></tr><tr><td>k</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="docs-page"><p>key</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_removeselecteddlgroup">removeSelectedDlGroup(v, k)</h3>
+<div class="removeselecteddlgroup"><div class="removeselecteddlgroup-page"><p>Remove a selected contact in distribution list</p>
+</div><h5 id="methods_removeselecteddlgroup_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>v</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="docs-page"><p>value</p>
+</div></td></tr><tr><td>k</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="docs-page"><p>key</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_returnlastindex">returnLastIndex(idx)</h3>
+<div class="returnlastindex"><div class="returnlastindex-page"><p>Utils function to return the last index saved</p>
+</div><h5 id="methods_returnlastindex_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>idx</td><td><a href="" class="label type-hint type-hint-number">Number</a></td><td><div class="docs-page"><p>Array index</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_returnresulttoinsertorhide">returnResultToInsertOrHide(key, arr)</h3>
+<div class="returnresulttoinsertorhide"><div class="returnresulttoinsertorhide-page"><p>Find the correct result to insert or hide</p>
+</div><h5 id="methods_returnresulttoinsertorhide_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>key</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="docs-page"><p>Array key</p>
+</div></td></tr><tr><td>arr</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="docs-page"><p>Array</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_selectitem">selectItem(idx, item, arr)</h3>
+<div class="selectitem"><div class="selectitem-page"><p>Select/Deselect item</p>
+</div><h5 id="methods_selectitem_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>idx</td><td><a href="" class="label type-hint type-hint-number">Number</a></td><td><div class="docs-page"><p>Array index</p>
+</div></td></tr><tr><td>item</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="docs-page"><p>Item object</p>
+</div></td></tr><tr><td>arr</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="docs-page"><p>Passing recipients array</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_selectedcontact">selectedContact(arr)</h3>
+<div class="selectedcontact"><div class="selectedcontact-page"><p>Get selected contact</p>
+</div><h5 id="methods_selectedcontact_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>arr</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="docs-page"><p>Passing arr with recipients</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_showduplicatesdialog">showDuplicatesDialog(arr, callback)</h3>
+<div class="showduplicatesdialog"><div class="showduplicatesdialog-page"><p>Display the duplicate dialog for the user</p>
+</div><h5 id="methods_showduplicatesdialog_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>arr</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="docs-page"><p>Duplicates recipients array</p>
+</div></td></tr><tr><td>callback</td><td><a href="" class="label type-hint type-hint-function">Function</a></td><td><div class="docs-page"><p>Callback function</p>
+</div></td></tr></tbody></table></div>
+</li>
+</ul>
+</div>
+</div>

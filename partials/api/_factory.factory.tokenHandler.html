@@ -1,0 +1,55 @@
+<h1><code ng:non-bindable="">tokenHandler</code>
+<div><span class="hint">service in module <code ng:non-bindable="">_factory</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="-factory-factory-page -factory-factory-tokenhandler-page"><p>Session storage to save item</p>
+</div></div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_deletetoken">deleteToken()</h3>
+<div class="deletetoken"><div class="deletetoken-page"><p>delete the Token from sessionStorage, remove the request header and return to login page</p>
+</div></div>
+</li>
+<li><h3 id="methods_getfirsttoken">getFirstToken(apiKey)</h3>
+<div class="getfirsttoken"><div class="getfirsttoken-page"><p>Init the first Token</p>
+</div><h5 id="methods_getfirsttoken_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>apiKey</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="getfirsttoken-page"><p>User api key</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_getnewtoken">getNewToken()</h3>
+<div class="getnewtoken"><div class="getnewtoken-page"><p>Renew a api token</p>
+</div></div>
+</li>
+<li><h3 id="methods_gettoken">getToken()</h3>
+<div class="gettoken"><div class="gettoken-page"><p>Return the token</p>
+</div></div>
+</li>
+<li><h3 id="methods_init">init()</h3>
+<div class="init"><div class="init-page"><p>Init token handler</p>
+</div></div>
+</li>
+<li><h3 id="methods_isvalidtoken">isValidToken()</h3>
+<div class="isvalidtoken"><div class="isvalidtoken-page"><p>Check if exist/undefined/expired, regenerate a new and launch refresh function</p>
+</div></div>
+</li>
+<li><h3 id="methods_refreshtoken">refreshToken()</h3>
+<div class="refreshtoken"><div class="refreshtoken-page"><p>Launch a loop function to refresh the token</p>
+</div></div>
+</li>
+<li><h3 id="methods_removeheader">removeHeader()</h3>
+<div class="removeheader"><div class="removeheader-page"><p>Remove request header</p>
+</div></div>
+</li>
+<li><h3 id="methods_savetoken">saveToken(token)</h3>
+<div class="savetoken"><div class="savetoken-page"><p>Save the Token in sessionStorage then set the request header</p>
+</div><h5 id="methods_savetoken_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>token</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="savetoken-page"><p>Api token</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_setheader">setHeader(token)</h3>
+<div class="setheader"><div class="setheader-page"><p>Set request header with JWT token</p>
+</div><h5 id="methods_setheader_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>token</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="setheader-page"><p>Api token</p>
+</div></td></tr></tbody></table></div>
+</li>
+</ul>
+</div>
+</div>

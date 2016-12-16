@@ -1,0 +1,146 @@
+<h1><code ng:non-bindable="">cmRecipients</code>
+<div><span class="hint">directive in module <code ng:non-bindable="">recipients</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="recipients-directive-page recipients-directive-cmrecipients-page"><p>A directive for recipients</p>
+</div></div>
+<h2 id="dependencies">Dependencies</h2>
+<ul class="dependencies"><li><code ng:non-bindable=""><a href="#/https://docs.angularjs.org/api/ng/service/$log">$log</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/https://docs.angularjs.org/api/ng/service/$rootScope">$rootScope</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/https://docs.angularjs.org/api/ng/service/$injector">$injector</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/https://docs.angularjs.org/api/ng/service/$q">$q</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/https://docs.angularjs.org/api/ng/service/$timeout">$timeout</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/_factory.factory:cmNotify">cmNotify</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/_factory.factory:infiniteScrollFactory">infiniteScrollFactory</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/user.factory:apiUser">apiUser</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/recipients.factory:recipientsMessage">recipientsMessage</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/recipients.factory:apiRecipient">apiRecipient</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/message.factory:messageDetailsFactory">messageDetailsFactory</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/Lodash">Lodash</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/appSettings">appSettings</a></code>
+</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<div class="usage">as attribute<pre class="prettyprint linenums">&lt;ANY cm-recipients&gt;
+   ...
+&lt;/ANY&gt;</pre>
+</div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_addcontact">addContact(recipient)</h3>
+<div class="addcontact"><div class="addcontact-page"><p>Get contact, prepare for API and checkDuplicate</p>
+</div><h5 id="methods_addcontact_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>recipient</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="addcontact-page"><p>A single mail</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_addcontactselected">addContactSelected(arr)</h3>
+<div class="addcontactselected"><div class="addcontactselected-page"><p>Get selected contacts, prepare for API and checkDuplicate</p>
+</div><h5 id="methods_addcontactselected_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>arr</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="addcontactselected-page"><p>Array</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_adddl">addDl(dl)</h3>
+<div class="adddl"><div class="adddl-page"><p>Get single distribution list, prepare for API and checkDuplicate</p>
+</div><h5 id="methods_adddl_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>dl</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="adddl-page"><p>Array</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_adddlselected">addDlSelected(arr)</h3>
+<div class="adddlselected"><div class="adddlselected-page"><p>Get selected distributions list, prepare for API and checkDuplicate</p>
+</div><h5 id="methods_adddlselected_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>arr</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="adddlselected-page"><p>Array</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_addgroup">addGroup(group)</h3>
+<div class="addgroup"><div class="addgroup-page"><p>Get group, prepare for API and checkDuplicate</p>
+</div><h5 id="methods_addgroup_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>group</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="addgroup-page"><p>Array with groups</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_addgroupselected">addGroupSelected(group)</h3>
+<div class="addgroupselected"><div class="addgroupselected-page"><p>Get group selected, prepare for API and checkDuplicate</p>
+</div><h5 id="methods_addgroupselected_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>group</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="addgroupselected-page"><p>Array with groups</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_addmanualrecipient">addManualRecipient()</h3>
+<div class="addmanualrecipient"><div class="addmanualrecipient-page"><p>Add manual recipients</p>
+</div></div>
+</li>
+<li><h3 id="methods_cancelcsvimport">cancelCsvImport()</h3>
+<div class="cancelcsvimport"><div class="cancelcsvimport-page"><p>Reset array csv</p>
+</div></div>
+</li>
+<li><h3 id="methods_importcsv">importCsv()</h3>
+<div class="importcsv"><div class="importcsv-page"><p>Import csv contacts, post recipients to API</p>
+</div></div>
+</li>
+<li><h3 id="methods_opencontacts">openContacts()</h3>
+<div class="opencontacts"><div class="opencontacts-page"><p>On click on tabs recipients, ask to Zimbra contacts</p>
+</div></div>
+</li>
+<li><h3 id="methods_postcontact">postContact(uniqArr, originalArr)</h3>
+<div class="postcontact"><div class="postcontact-page"><p>Function post Distribution list
+TODO split to recipientContactZimlet.directive.js</p>
+</div><h5 id="methods_postcontact_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>uniqArr</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="postcontact-page"><p>Array with single mails</p>
+</div></td></tr><tr><td>originalArr</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="postcontact-page"><p>Original array without modifications</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_postcontact">postContact(uniqArr, originalArr)</h3>
+<div class="postcontact"><div class="postcontact-page"><p>Function post Group to Api
+TODO split to recipientGroupZimlet.directive.js</p>
+</div><h5 id="methods_postcontact_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>uniqArr</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="postcontact-page"><p>Array with single mails</p>
+</div></td></tr><tr><td>originalArr</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="postcontact-page"><p>Original array without modifications</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_postdl">postDl(uniqArr, originalArr)</h3>
+<div class="postdl"><div class="postdl-page"><p>Function post Distribution list
+TODO split to recipientDlZimlet.directive.js</p>
+</div><h5 id="methods_postdl_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>uniqArr</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="postdl-page"><p>Array with single mails</p>
+</div></td></tr><tr><td>originalArr</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="postdl-page"><p>Original array without modifications</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_removeallcsvrecipients">removeAllCsvRecipients(csvContacts)</h3>
+<div class="removeallcsvrecipients"><div class="removeallcsvrecipients-page"><p>Delete all csv recipients</p>
+</div><h5 id="methods_removeallcsvrecipients_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>csvContacts</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="removeallcsvrecipients-page"><p>Array with all csv url</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_removeallmanualrecipients">removeAllManualRecipients(manualContact, index)</h3>
+<div class="removeallmanualrecipients"><div class="removeallmanualrecipients-page"><p>Add manual recipients</p>
+</div><h5 id="methods_removeallmanualrecipients_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>manualContact</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="removeallmanualrecipients-page"><p>Passing mail object</p>
+</div></td></tr><tr><td>index</td><td><a href="" class="label type-hint type-hint-number">Number</a></td><td><div class="removeallmanualrecipients-page"><p>Index array to delete in manual array</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_removecsvrecipient">removeCsvRecipient(mail, index)</h3>
+<div class="removecsvrecipient"><div class="removecsvrecipient-page"><p>Remove csv recipients in API</p>
+</div><h5 id="methods_removecsvrecipient_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>mail</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="removecsvrecipient-page"><p>Passing object recipient</p>
+</div></td></tr><tr><td>index</td><td><a href="" class="label type-hint type-hint-number">Number</a></td><td><div class="removecsvrecipient-page"><p>Passing object recipient</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_removemanualrecipient">removeManualRecipient(mail, index)</h3>
+<div class="removemanualrecipient"><div class="removemanualrecipient-page"><p>Remove single manual recipient</p>
+</div><h5 id="methods_removemanualrecipient_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>mail</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="removemanualrecipient-page"><p>Passing mail object</p>
+</div></td></tr><tr><td>index</td><td><a href="" class="label type-hint type-hint-number">Number</a></td><td><div class="removemanualrecipient-page"><p>Index array to delete in manual array</p>
+</div></td></tr></tbody></table></div>
+</li>
+</ul>
+</div>
+<div class="member event"><h2 id="events">Events</h2>
+<ul class="events"><li><h3 id="events_zimbracontactscollected">zimbraContactsCollected</h3>
+<div class="zimbracontactscollected"><div class="zimbracontactscollected-page"><p>Get zimbra postMessage</p>
+</div><div class="inline"><h4 id="events_zimbracontactscollected_type">Type:</h4>
+<div class="type">broadcast</div>
+</div>
+<div class="inline"></div>
+</div>
+</li>
+</ul>
+</div>
+</div>

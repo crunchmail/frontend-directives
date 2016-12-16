@@ -1,0 +1,50 @@
+<h1><code ng:non-bindable="">cmCsvUpload</code>
+<div><span class="hint">directive in module <code ng:non-bindable="">_directives</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="-directives-directive-page -directives-directive-cmcsvupload-page"><p>Read csv file</p>
+</div></div>
+<h2 id="dependencies">Dependencies</h2>
+<ul class="dependencies"><li><code ng:non-bindable=""><a href="#/api/Lodash">Lodash</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/https://docs.angularjs.org/api/ng/service/$log">$log</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/https://docs.angularjs.org/api/ng/service/$rootScope">$rootScope</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/https://docs.angularjs.org/api/ng/service/$timeout">$timeout</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/http://likeastore.github.io/ngDialog">ngDialog</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/_directives.directive:cmNotify">cmNotify</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/gettextCatalog">gettextCatalog</a></code>
+</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<div class="usage">as element:<pre class="prettyprint linenums">&lt;cm-csv-upload
+       csv-result="{Object}"
+       csv-header="{Object}"
+       csv-name="{Object}"
+       callback="{Function}"&gt;
+&lt;/cm-csv-upload&gt;</pre>
+<h3 id="usage_directive-info">Directive info</h3>
+<div class="directive-info"><ul><li>This directive creates new scope.</li>
+</ul>
+</div>
+<h4 id="usage_directive-info_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>csvResult</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="-directives-directive-page -directives-directive-cmcsvupload-page"><p>Passing object csv result to parent</p>
+</div></td></tr><tr><td>csvHeader</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="-directives-directive-page -directives-directive-cmcsvupload-page"><p>Passing object csv header to parent</p>
+</div></td></tr><tr><td>csvName</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="-directives-directive-page -directives-directive-cmcsvupload-page"><p>Passing csv filename to parent</p>
+</div></td></tr><tr><td>callback</td><td><a href="" class="label type-hint type-hint-function">Function</a></td><td><div class="-directives-directive-page -directives-directive-cmcsvupload-page"><p>Callback function (optionnal)</p>
+</div></td></tr></tbody></table></div>
+<div class="member event"><h2 id="events">Events</h2>
+<ul class="events"><li><h3 id="events_change">change</h3>
+<div class="change"><div class="change-page"><p>On change, parse the csv file with Papaparse</p>
+</div><div class="inline"></div>
+<div class="inline"></div>
+</div>
+</li>
+</ul>
+</div>
+</div>

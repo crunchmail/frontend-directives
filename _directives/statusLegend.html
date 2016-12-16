@@ -1,7 +1,0 @@
-<strong translate>Filters :</strong>
-<ul class="ul-reset legendStatus">
-    <li ng-class="{ isActive: init.indexOf(status.filter) + 1 }" class="status-{{status.filter}} status-border" ng-repeat="status in filtersStatus">
-        <input ng-init="status.filter" checklist-change="applyFilter(status.filter)" checklist-model="init" checklist-value="status.filter" id="checkbox-{{status.value}}" type="checkbox" ng-disabled="activateDisabled && init.indexOf(status.filter) + 1 && init.length === 1">
-        <label for="checkbox-{{status.value}}">{{status.name}}</label>
-    </li>
-</ul>

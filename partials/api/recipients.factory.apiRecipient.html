@@ -1,0 +1,70 @@
+<h1><code ng:non-bindable="">apiRecipient</code>
+<div><span class="hint">service in module <code ng:non-bindable="">recipients</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="recipients-factory-page recipients-factory-apirecipient-page"><p>Api shortcut for Recipients</p>
+</div></div>
+<h2 id="dependencies">Dependencies</h2>
+<ul class="dependencies"><li><code ng:non-bindable=""><a href="#/https://docs.angularjs.org/api/ng/service/$http">$http</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/https://docs.angularjs.org/api/ng/service/$rootScope">$rootScope</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/Lodash">Lodash</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/gettextCatalog">gettextCatalog</a></code>
+</li>
+</ul>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_bulkpost">bulkPost(arr)</h3>
+<div class="bulkpost"><div class="bulkpost-page"><p>The bulk post to send massives mails</p>
+</div><h5 id="methods_bulkpost_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>arr</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="bulkpost-page"><p>Array with mails</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_calculsendinglimit">calculSendingLimit(total)</h3>
+<div class="calculsendinglimit"><div class="calculsendinglimit-page"><p>Calcul a limit for the bulk post</p>
+</div><h5 id="methods_calculsendinglimit_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>total</td><td><a href="" class="label type-hint type-hint-number">Number</a></td><td><div class="calculsendinglimit-page"><p>Mails total number to post</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_deletemail">deleteMail(url, config)</h3>
+<div class="deletemail"><div class="deletemail-page"><p>Delete single mail</p>
+</div><h5 id="methods_deletemail_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>url</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="deletemail-page"><p>API url</p>
+</div></td></tr><tr><td>config</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="deletemail-page"><p>passing the $http config</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_deleterecipients">deleteRecipients(arrUrl)</h3>
+<div class="deleterecipients"><div class="deleterecipients-page"><p>Delete recipients</p>
+</div><h5 id="methods_deleterecipients_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>arrUrl</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="deleterecipients-page"><p>Array with all API url to delete</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_getallrecipients">getAllRecipients(url)</h3>
+<div class="getallrecipients"><div class="getallrecipients-page"><p>Get all recipients</p>
+</div><h5 id="methods_getallrecipients_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>url</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="getallrecipients-page"><p>API url</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_getrecipient">getRecipient(url, arr)</h3>
+<div class="getrecipient"><div class="getrecipient-page"><p>Get recipients limited by calculSendingLimit result</p>
+</div><h5 id="methods_getrecipient_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>url</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="getrecipient-page"><p>API url</p>
+</div></td></tr><tr><td>arr</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="getrecipient-page"><p>Array use for the recursive function</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_postmails">postMails(obj, config)</h3>
+<div class="postmails"><div class="postmails-page"><p>Post mails</p>
+</div><h5 id="methods_postmails_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>obj</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="postmails-page"><p>Object which contain all mails</p>
+</div></td></tr><tr><td>config</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="postmails-page"><p>passing the $http config</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_resultdelete">resultDelete(arr)</h3>
+<div class="resultdelete"><div class="resultdelete-page"><p>The success promise from delete call</p>
+</div><h5 id="methods_resultdelete_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>arr</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="resultdelete-page"><p>The success promise result from delete</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_resultpost">resultPost(result)</h3>
+<div class="resultpost"><div class="resultpost-page"><p>Promise result from post</p>
+</div><h5 id="methods_resultpost_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>result</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="resultpost-page"><p>The success promise result from mails posting</p>
+</div></td></tr></tbody></table></div>
+</li>
+</ul>
+</div>
+</div>

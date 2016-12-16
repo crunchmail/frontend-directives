@@ -1,0 +1,63 @@
+<h1><code ng:non-bindable="">cmAttachments</code>
+<div><span class="hint">directive in module <code ng:non-bindable="">message</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="message-directive-page message-directive-cmattachments-page"><p>Directive to display attachments</p>
+</div></div>
+<h2 id="dependencies">Dependencies</h2>
+<ul class="dependencies"><li><code ng:non-bindable=""><a href="#/https://docs.angularjs.org/api/ng/service/$log">$log</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/cmNotify.factory:cmNotify">cmNotify</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/https://docs.angularjs.org/api/ng/service/$sce">$sce</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/https://docs.angularjs.org/api/ng/service/$timeout">$timeout</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/globalFunction.factory:globalFunction">globalFunction</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/apiMessage.factory:apiMessage">apiMessage</a></code>
+</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<div class="usage">as element:<pre class="prettyprint linenums">&lt;cm-attachments&gt;
+&lt;/cm-attachments&gt;</pre>
+</div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_addinput">addInput()</h3>
+<div class="addinput"><div class="addinput-page"><p>add new input attachment and attach changeInput event</p>
+</div></div>
+</li>
+<li><h3 id="methods_changeinput">changeInput(changeEvent)</h3>
+<div class="changeinput"><div class="changeinput-page"><p>event on input change</p>
+</div><h5 id="methods_changeinput_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>changeEvent</td><td><a href="" class="label type-hint type-hint-event">Event</a></td><td><div class="changeinput-page"><p>event from input file on change</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_removeinput">removeInput(id)</h3>
+<div class="removeinput"><div class="removeinput-page"><p>remove one input file</p>
+</div><h5 id="methods_removeinput_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>id</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="removeinput-page"><p>index in the array input</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_to_trusted">to_trusted()</h3>
+<div class="to_trusted"><div class="to-trusted-page"><p>convert to executable html with trustAsHtml</p>
+</div></div>
+</li>
+<li><h3 id="methods_uploadattachments">uploadAttachments()</h3>
+<div class="uploadattachments"><div class="uploadattachments-page"><p>udpate the message and reset input array</p>
+</div></div>
+</li>
+</ul>
+</div>
+<div class="member property"><h2 id="properties">Properties</h2>
+<ul class="properties"><li><h3 id="properties_arrayinput">arrayInput</h3>
+<div class="arrayinput"><div class="arrayinput-page"><p>Array to receive html</p>
+</div></div>
+</li>
+<li><h3 id="properties_modelinput">modelInput</h3>
+<div class="modelinput"><div class="modelinput-page"><p>html to inject in array for the template</p>
+</div></div>
+</li>
+</ul>
+</div>
+</div>

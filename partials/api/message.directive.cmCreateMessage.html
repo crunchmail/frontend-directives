@@ -1,0 +1,109 @@
+<h1><code ng:non-bindable="">cmCreateMessage</code>
+<div><span class="hint">directive in module <code ng:non-bindable="">message</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="message-directive-page message-directive-cmcreatemessage-page"><p>Directive for the first message to create</p>
+</div></div>
+<h2 id="dependencies">Dependencies</h2>
+<ul class="dependencies"><li><code ng:non-bindable=""><a href="#/api/Lodash">Lodash</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/https://docs.angularjs.org/api/ng/service/$log">$log</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/_factory.factory:cmNotify">cmNotify</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/message.factory:apiMessage">apiMessage</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/https://docs.angularjs.org/api/ng/service/$sce">$sce</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/https://docs.angularjs.org/api/ng/service/$location">$location</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/https://docs.angularjs.org/api/ng/service/$rootScope">$rootScope</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/https://docs.angularjs.org/api/ng/service/$http">$http</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/_factory.factory:base64">base64</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/_directives.factory:globalFunction">globalFunction</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/_factory.factory:tokenHandler">tokenHandler</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/gettextCatalog">gettextCatalog</a></code>
+</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<div class="usage">as element:<pre class="prettyprint linenums">&lt;cm-create-message&gt;
+&lt;/cm-create-message&gt;</pre>
+</div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_$watch-message-object">$watch message object()</h3>
+<div class="$watch-message-object"><div class="-watch-message-object-page"><p>Check name, sender_email, sender_name, subject and category to validate or not the form</p>
+</div></div>
+</li>
+<li><h3 id="methods_getall">getAll(params)</h3>
+<div class="getall"><div class="apimessage-getall-page"><p>Get all message see <a href="#/api/message.factory:apiMessage">message.factory:apiMessage</a></p>
+</div><h5 id="methods_getall_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>params</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="apimessage-getall-page"><p>$http params</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_changetypemessage">changeTypeMessage(type)</h3>
+<div class="changetypemessage"><div class="changetypemessage-page"><p>Show some message if not domain, not categories...</p>
+</div><h5 id="methods_changetypemessage_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>type</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="changetypemessage-page"><p>Message type</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_moremessages">moreMessages()</h3>
+<div class="moremessages"><div class="moremessages-page"><p>Get the next messages</p>
+</div></div>
+</li>
+<li><h3 id="methods_openeditor">openEditor(name)</h3>
+<div class="openeditor"><div class="openeditor-page"><p>Open editor Toothpaste and pass in query args a token, api url and the name</p>
+</div><h5 id="methods_openeditor_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>name</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="openeditor-page"><p>get the name to set document name in Toothpaste</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_showeditor">showEditor()</h3>
+<div class="showeditor"><div class="showeditor-page"><p>Create the message and open Toothpaste</p>
+</div></div>
+</li>
+<li><h3 id="methods_showeditor">showEditor(message)</h3>
+<div class="showeditor"><div class="showeditor-page"><p>Duplicate the selected message</p>
+</div><h5 id="methods_showeditor_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>message</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="showeditor-page"><p>Message object</p>
+</div></td></tr></tbody></table></div>
+</li>
+</ul>
+</div>
+<div class="member property"><h2 id="properties">Properties</h2>
+<ul class="properties"><li><h3 id="properties_detailmessage">detailMessage</h3>
+<div class="detailmessage"><div class="detailmessage-page"><p>Show some message if not domain, not categories...</p>
+</div></div>
+</li>
+<li><h3 id="properties_disabledbtn">disabledBtn</h3>
+<div class="disabledbtn"><div class="disabledbtn-page"><p>disable quick send tab, default: disabled</p>
+</div></div>
+</li>
+<li><h3 id="properties_duplicatevisible">duplicateVisible</h3>
+<div class="duplicatevisible"><div class="duplicatevisible-page"><p>Boolean to show/hide the duplicate view</p>
+</div></div>
+</li>
+<li><h3 id="properties_message">message</h3>
+<div class="message"><div class="message-page"><p>Initialize message object and set track_open and track_clicks</p>
+</div></div>
+</li>
+<li><h3 id="properties_messageurl">messageUrl</h3>
+<div class="messageurl"><div class="messageurl-page"><p>To save the message url</p>
+</div></div>
+</li>
+<li><h3 id="properties_next">next</h3>
+<div class="next"><div class="next-page"><p>Load next messages</p>
+</div></div>
+</li>
+<li><h3 id="properties_next">next</h3>
+<div class="next"><div class="next-page"><p>Global variable to set form validity and show the new button to access to Toothpaste</p>
+</div></div>
+</li>
+<li><h3 id="properties_typemessage">typeMessage</h3>
+<div class="typemessage"><div class="typemessage-page"><p>Set the message type, default: news-message</p>
+</div></div>
+</li>
+</ul>
+</div>
+</div>

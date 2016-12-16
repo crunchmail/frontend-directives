@@ -1,0 +1,49 @@
+<h1><code ng:non-bindable="">cmRecipientsDuplicate</code>
+<div><span class="hint">directive in module <code ng:non-bindable="">recipients</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="recipients-directive-page recipients-directive-cmrecipientsduplicate-page"><p>Display to user a dialog with all duplicate recipients</p>
+</div></div>
+<h2 id="dependencies">Dependencies</h2>
+<ul class="dependencies"><li><code ng:non-bindable=""><a href="#/https://docs.angularjs.org/api/ng/service/$log">$log</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/https://github.com/likeastore/ngDialog">ngDialog</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/Lodash">Lodash</a></code>
+</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<div class="usage">as attribute<pre class="prettyprint linenums">&lt;ANY cm-recipients-duplicate
+     duplicate="{Object}"
+     callback="{Function}"&gt;
+   ...
+&lt;/ANY&gt;</pre>
+<h3 id="usage_directive-info">Directive info</h3>
+<div class="directive-info"><ul><li>This directive creates new scope.</li>
+</ul>
+</div>
+<h4 id="usage_directive-info_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>duplicate</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="recipients-directive-page recipients-directive-cmrecipientsduplicate-page"><p>Passing the array with duplicate recipients</p>
+</div></td></tr><tr><td>callback</td><td><a href="" class="label type-hint type-hint-function">Function</a></td><td><div class="recipients-directive-page recipients-directive-cmrecipientsduplicate-page"><p>the callback function with recipients selected</p>
+</div></td></tr></tbody></table></div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_changeradio">changeRadio()</h3>
+<div class="changeradio"><div class="changeradio-page"><p>Set all inputs radio value to false</p>
+</div></div>
+</li>
+<li><h3 id="methods_close">close()</h3>
+<div class="close"><div class="close-page"><p>Close all dialog</p>
+</div></div>
+</li>
+<li><h3 id="methods_passingselected">passingSelected()</h3>
+<div class="passingselected"><div class="passingselected-page"><p>Get selected recipients and passing them into the callback</p>
+</div></div>
+</li>
+<li><h3 id="methods_shownext">showNext()</h3>
+<div class="shownext"><div class="shownext-page"><p>Get the next 20 recipients in duplicate</p>
+</div></div>
+</li>
+</ul>
+</div>
+</div>
