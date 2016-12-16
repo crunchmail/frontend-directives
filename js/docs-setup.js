@@ -10,7 +10,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "Docs Top",
       "shortDescription": "Description",
-      "keywords": "api components crunchmail description docs front overview portal structure top zimlet"
+      "keywords": "4002 api application branch build command components crunchmail deploy description directives docs documentation feature folder front frontend gettext gh-pages gulp modules overview portal separated serve structure top translate write zimlet"
     },
     {
       "section": "api",
