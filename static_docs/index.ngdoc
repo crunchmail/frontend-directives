@@ -7,6 +7,8 @@
 Front components for crunchmail portal and zimlet
 
 ## Structure
+This application is separated in several modules. Every modules is an application feature.
+
     /_directive
     /_factory
         /infiniteScroll
@@ -27,3 +29,14 @@ Front components for crunchmail portal and zimlet
     /reports
     /user
     /zimbra
+
+## Gulp command
+
+    gulp deploy
+Build documentation and deploy documentation on the gh-pages branch
+
+    gulp gettext
+Translate frontend directives
+
+    gulp serve
+Serve docs folder to write documentation, go to [http://localhost:4002](http://localhost:4002)

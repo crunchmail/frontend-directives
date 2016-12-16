@@ -44,6 +44,7 @@
     "gulp": "^3.8.11",
     "gulp-angular-gettext": "^2.1.0",
     "gulp-bump": "^2.4.0",
+    "gulp-connect": "^5.0.0",
     "gulp-debug": "^2.1.2",
     "gulp-filter": "^4.0.0",
     "gulp-gh-pages": "^0.5.4",
