@@ -7,12 +7,13 @@
  * @requires https://docs.angularjs.org/api/ng/service/$compile
  * @requires https://docs.angularjs.org/api/ng/service/$templateRequest
  * @requires https://docs.angularjs.org/api/ng/service/$route
+ * @requires https://docs.angularjs.org/api/ng/service/$log
  * @requires appSettings
  */
 (function () {
     'use strict';
 
-    var directive = function(appSettings, $location, $compile, $templateRequest, $route) {
+    var directive = function(appSettings, $location, $compile, $templateRequest, $route, $log) {
         return {
             link: function(scope, element, attrs) {
                 var pathTpl = null;

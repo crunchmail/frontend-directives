@@ -25,7 +25,7 @@
                  * @param {Event} e Passing the DOM event
                  */
                 element.bind('DOMMouseScroll', function (e) {
-                    if (e.detail > 0 && this.clientHeight + this.scrollTop == this.scrollHeight) {
+                    if (e.detail > 0 && this.clientHeight + this.scrollTop === this.scrollHeight) {
                         this.scrollTop = this.scrollHeight - this.clientHeight;
                         e.stopPropagation();
                         e.preventDefault();

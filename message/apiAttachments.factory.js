@@ -4,11 +4,12 @@
  * @description attachments factory
  * @requires https://docs.angularjs.org/api/ng/service/$log
  * @requires https://docs.angularjs.org/api/ng/service/$http
+ * @requires https://docs.angularjs.org/api/ng/service/$rootScope
  */
 (function () {
     'use strict';
 
-    var factory = function($log, $http){
+    var factory = function($log, $http, $rootScope){
         return {
             /**
              * @ngdoc function

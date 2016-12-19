@@ -12,7 +12,7 @@
 (function () {
     'use strict';
 
-    var directive = function(apiCategory, ngDialog, $log, cmNotify) {
+    var directive = function(apiCategory, ngDialog, $log, cmNotify, gettextCatalog) {
         return {
             templateUrl:'views/category/listCategories.html',
             link: function(scope, element, attrs) {

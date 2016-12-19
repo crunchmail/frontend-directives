@@ -1,3 +1,5 @@
+'use strict';
+
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')({
     rename: {
@@ -6,7 +8,18 @@ var plugins = require('gulp-load-plugins')({
     }
 });
 
-gulp.task('docs', function () {
+gulp.task('jshint', function() {
+    return gulp.src([
+        '**/*.js',
+        '!.git/**',
+        '!docs/**',
+        '!node_modules/**'
+    ])
+    .pipe(plugins.jshint())
+    .pipe(plugins.jshint.reporter('default'));
+});
+
+gulp.task('docs', ['jshint'], function () {
     var options = {
         html5Mode: false,
         startPage: '/api'

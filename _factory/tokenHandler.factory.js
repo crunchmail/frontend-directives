@@ -149,9 +149,9 @@
             refreshToken: function(token) {
                 $log.debug("refresh");
                 var main = this;
-                if(refreshPromise !== undefined) {
-                    $interval.cancel(refreshPromise);
-                }
+                // if(refreshPromise !== undefined) {
+                //     $interval.cancel(refreshPromise);
+                // }
                 var refreshPromise = $interval(function() {
                     main.getNewToken(token).then(function(data) {
                         /*
