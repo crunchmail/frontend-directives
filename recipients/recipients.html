@@ -144,7 +144,7 @@
                     <span class="nbre">{{clistAdded.length}}</span>
                     <button ng-disabled="clistAdded.length === 0"
                             class="btn icon-trashcan x-small-btn"
-                            ng-click="removeAllClistRecipients(clistAdded)"
+                            ng-click="removeAllClistContacts(clistAdded)"
                             cm-confirm="Are you sure you want to remove all contact lists recipients?"></button>
                 </h3>
                 <div id="clist-content" cm-isolate-scrolling class="recipients-content-collapse" ng-class="{'is-active': showClist}" ng-show="showClist">
@@ -152,7 +152,7 @@
                         <li ng-repeat="list in clistAdded | limitTo: limitClist">
                             {{::list.name}}
                             <button class="btn icon-remove-circle icon-alone"
-                                    ng-click="removeClistRecipient(list, $index)"
+                                    ng-click="deleteClist(list, $index)"
                                     cm-confirm="Are you sure you want to remove ${recipient}?"
                                     cm-confirm-data='{"recipient":"{{::list.name}}"}'></button>
                         </li>
